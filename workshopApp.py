@@ -4,6 +4,7 @@ import time
 import re
 from tkinter import *
 from tkinter import messagebox, scrolledtext
+from tkinter.ttk import Combobox #zz
 from datetime import datetime
 import configparser
 
@@ -40,6 +41,19 @@ def load_save_directory_from_ini(file_path, default_directory):
         return config['Settings']['SaveDirectory']
     except KeyError:
         return default_directory  # Fallback to default if the key is missing
+#zz loading groups from config.ini
+def load_groups_from_ini(file_path):
+    config = configparser.ConfigParser()
+    config.read(file_path)
+
+    groups = {}
+    if "Groups" in config:
+        for key, value in config["Groups"].items():
+            groups[key.upper()] = int(value)
+    try:
+        return groups
+    except KeyError:
+        return {}  # Empty, if the key is missing
 
 SAVE_DIRECTORY = load_save_directory_from_ini(TIMER_INI_FILE, default_directory=os.path.expanduser('~'))
 
@@ -193,8 +207,16 @@ class StudentAssessmentApp:
         
         # Group field (centered under student 2 with 1cm vertical spacing)
         Label(main_frame, text="Group:", font=self.medium_font).grid(row=6, column=2, padx=10, pady=(38, 10), sticky=E)
-        Entry(main_frame, textvariable=self.group, font=self.medium_font).grid(row=6, column=3, padx=10, pady=(38, 10), sticky=W)  
+        #Entry(main_frame, textvariable=self.group, font=self.medium_font).grid(row=6, column=3, padx=10, pady=(38, 10), sticky=W)  
+
+        #zz Group ComboBox => Generate from Config.ini (i.e G1…G7,H1..H4, L1..L6)  
+        GROUPS_DICT = load_groups_from_ini(TIMER_INI_FILE)
+        print(GROUPS_DICT)
+        group_choices = [f"{s}{i}" for s, n in GROUPS_DICT.items() for i in range(1, n+1)]
         
+        self.group_combobox = Combobox( main_frame, textvariable=self.group, values=group_choices, state="readonly", font=self.medium_font, width=10)
+        self.group_combobox.grid(row=6, column=3, padx=10, pady=(38, 10), sticky=W)
+        ##zz Group Entry was repcaled with  ComboBox
 
         Button(main_frame, text="Start Workshop",
                command=self.start_workshop,
