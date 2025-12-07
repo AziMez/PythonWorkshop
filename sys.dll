@@ -1,0 +1,17 @@
+Write a function 'count_evens_odds(n)' that counts how many even and odd numbers exist from '1' to 'n' (inclusive). Call it with input data from the user.
+Write a function 'safe_factorial(n)' that computes the factorial of 'n' only if 'n' is non-negative (use a loop). If 'n' is negative, return '"Invalid input"'. Call it with input data from the user.
+Write a function 'is_prime(num)' that checks if 'num' is prime using a  for loop. Call it with input data from the user.
+Write a function 'fibonacci(n)' that returns the 'n-th' Fibonacci number (must use a loop, not recursion). Call it with input data from the user.
+Write a function 'print_multiplication_table(n)' that prints the multiplication table for 'n' up to '10', but skips odd multiples (use 'continue' in a loop). Call it with input data from the user.  
+Write a function 'count_digits(num)' that counts how many digits a number has (must handle '0' and negatives). Call it with input data from the user.
+Write a function 'sum_digits(n)' that sums all digits of 'n' (must use a loop). Call it with input data from the user.
+Write a function 'fizzbuzz(n)' that prints numbers from '1' to 'n', replacing multiples of 3 with '"Fizz"', multiples of 5 with '"Buzz"', and both with '"FizzBuzz"'. Call it with input data from the user.
+Write a function 'reverse_digits(n)' that reverses the digits of 'n' (must use a loop). Call it with input data from the user.
+Write a function 'gcd(a, b)' that computes the GCD of two integers using the  Euclidean algorithm. Call it with input data from the user.
+Write a function 'is_perfect_number(n)' that checks if 'n' is a perfect number (sum of its proper divisors equals 'n'). Call it with input data from the user.
+Write a function 'count_pnz(n)' that asks the user to input 'n' numbers and counts how many are positive, negative, or zero. Call it with input data from the user.
+Write a function 'divisible_3_or_5(n)' that prints numbers from '1' to 'n' divisible by 3 or 5, but not both. Call it with input data from the user.
+Write a function 'sum_odd(n)' that returns the sum of the first 'n' odd numbers. Call it with input data from the user.
+Write a function 'is_perfect_square(num)' that returns True  if 'num' is a perfect square using a loop and False otherwise. Call it with input data from the user.
+Write a function 'largest_digit(n)' that returns the largest digit in 'n'. Call it with input data from the user.
+Write a function 'sum_proper_divisors(n)' that returns the sum of all proper divisors of 'n' (excluding 'n'). Call it with input data from the user.
