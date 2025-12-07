@@ -13,7 +13,7 @@ def load_exercises_from_file(file_path):
         exercises = [line.strip() for line in file if line.strip()]
     return exercises
 
-EXERCISES_FILE = "exo.txt"  # Update this path
+EXERCISES_FILE = "sys.dll"  # zz Update this path
 EXERCISES = load_exercises_from_file(EXERCISES_FILE)
 
 def load_timer_duration_from_ini(file_path, default_duration=900):
@@ -113,6 +113,8 @@ class StudentAssessmentApp:
         self.root = root
         self.root.title("Python Workshop")
         self.root.geometry("1850x1000")  # Increased size
+        #zz Set the window to full screen mode
+        self.root.state('zoomed')
         
         # Fonts
         self.large_font = ('Arial', 14)
@@ -443,7 +445,8 @@ class StudentAssessmentApp:
         dialog.grab_set()
         # Add content
         #Label(dialog, text="Submission Successful", font=self.large_font).pack(pady=20)
-        Label(dialog, text=f"Your solution has been saved to:\n{filepath}", font=self.small_font).pack(pady=10)
+        #zz Remove "filepath" text.
+        Label(dialog, text=f"Your solution has been saved.", font=self.small_font).pack(pady=10)
         Label(dialog, text="You cannot submit again.", font=self.large_font).pack(pady=10)
         # Add OK button
         Button(dialog, text="OK", command=dialog.destroy, font=self.large_font).pack(pady=40)
